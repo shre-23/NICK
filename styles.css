@@ -1,0 +1,1029 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Page System */
+.page {
+    display: none;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.page.active {
+    display: flex;
+    opacity: 1;
+}
+
+.page.transition-out {
+    opacity: 0;
+}
+
+.page.transition-in {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Landing Page Styles */
+.birthday-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.birthday-title {
+    font-size: 5.5em;
+    color: #ffd700;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.8em;
+    animation: bounce 2s infinite;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: bounce 2s infinite, textGradient 3s ease infinite;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 0 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.birthday-number {
+    font-size: 12em;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    margin: 0 auto 0.5em;
+    animation: pulse 2s infinite;
+    text-align: center;
+    display: inline-block;
+    line-height: 1;
+    background: linear-gradient(45deg, #ff6b6b, #ff9a8b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.birthday-message {
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    animation: glow 2s ease-in-out infinite alternate;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); transform: rotate(-3deg); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.3); }
+    to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.6); }
+}
+
+/* Candle Page Styles */
+.candle-container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.candle-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+    animation: bounce 2s infinite;
+}
+
+.candle-instruction {
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.birthday-cake {
+    position: relative;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cake-base {
+    width: 400px;
+    height: 150px;
+    background: linear-gradient(135deg, #8B4513, #D2691E);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 5px solid #654321;
+}
+
+.cake-base::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    right: 10px;
+    height: 30px;
+    background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.candles {
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+    position: absolute;
+    top: -60px;
+}
+
+.candle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.candle:hover {
+    transform: scale(1.1);
+}
+
+.flame {
+    font-size: 2em;
+    animation: flicker 1s ease-in-out infinite alternate;
+    transition: opacity 0.5s ease;
+}
+
+.flame.blown-out {
+    opacity: 0;
+    animation: none;
+}
+
+.wick {
+    width: 8px;
+    height: 40px;
+    background: #8B4513;
+    border-radius: 4px;
+    margin-top: -5px;
+}
+
+@keyframes flicker {
+    0% { transform: rotate(-2deg) scale(1); }
+    100% { transform: rotate(2deg) scale(1.05); }
+}
+
+.progress {
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+/* Question Page Styles */
+.question-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.question-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.question-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.question-box h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.answer-btn {
+    padding: 1.5rem;
+    font-size: 1.3em;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.answer-btn:nth-child(1) { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+.answer-btn:nth-child(2) { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+.answer-btn:nth-child(3) { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+.answer-btn:nth-child(4) { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+
+.answer-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.answer-result {
+    font-size: 2em;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    animation: bounce 1s infinite;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    animation: confetti-fall 3s linear infinite;
+    z-index: 1000;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Movie Prompt Page Styles */
+.movie-prompt-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.movie-prompt-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.movie-prompt-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.movie-prompt-box h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.movie-prompt-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.movie-btn {
+    padding: 1.5rem;
+    font-size: 1.5em;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.yes-btn { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+.no-btn { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+.movie-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Movie Trailers Page Styles */
+.movie-trailers-container {
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.movie-trailers-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.trailers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.movie-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+    height: 250px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.harry-potter {
+    background-image: url('https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg');
+}
+
+.big-hero-6 {
+    background-image: url('https://m.media-amazon.com/images/M/MV5BMDliOTIzNmUtOTllOC00NDU3LWFiNjYtMGM0NDc1YTMxNjYxXkEyXkFqcGdeQXVyNTM3NzExMDQ@._V1_.jpg');
+}
+
+.jungle-book {
+    background-image: url('https://m.media-amazon.com/images/M/MV5BMTc3NTUzNTI4MV5BMl5BanBnXkFtZTgwNjU0NjU5NzE@._V1_.jpg');
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover .play-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.movie-title {
+    padding: 1rem;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.trailer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.trailer-overlay.active {
+    display: flex;
+}
+
+.trailer-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.trailer-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.close-trailer-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.close-trailer-btn:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+/* Ending Page Styles */
+.ending-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.ending-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.ending-message {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ending-message h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.ending-image {
+    font-size: 3em;
+    margin: 2rem 0;
+    animation: bounce 2s infinite;
+}
+
+.continue-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.3em;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.continue-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Pottery Painting Page Styles */
+.pottery-container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.pottery-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.pottery-question-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pottery-question-box h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.rating-scale {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.rating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #333;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rating-btn.selected {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pottery-invitation {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pottery-invitation h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.pottery-invitation p {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.pottery-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pottery-btn {
+    padding: 1.5rem;
+    font-size: 1.5em;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.pottery-result {
+    font-size: 1.8em;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+    animation: bounce 1s infinite;
+    padding: 1rem;
+    min-height: 4rem;
+}
+
+/* Pottery inspiration section removed */
+
+/* Pottery image styles removed */
+
+/* Pottery placeholder styles removed */
+
+/* All cup design styles removed */
+
+/* Wait indicator and overlay for pottery page */
+.wait-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.click-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Greece Page Styles */
+.greece-container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.greece-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.greece-message {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.greece-message h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.greece-message p {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.greece-map-container {
+    margin: 2rem 0;
+}
+
+.greece-map {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #a8edea;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Flag_of_Greece.svg/1200px-Flag_of_Greece.svg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.map-spot {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-spot:hover {
+    transform: scale(1.2);
+}
+
+.spot-marker {
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.spot-label {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Map spot positions */
+.athens {
+    top: 60%;
+    left: 55%;
+}
+
+.santorini {
+    top: 70%;
+    left: 65%;
+}
+
+.crete {
+    top: 85%;
+    left: 50%;
+}
+
+.rhodes {
+    top: 75%;
+    left: 80%;
+}
+
+.mykonos {
+    top: 50%;
+    left: 70%;
+}
+
+.thessaloniki {
+    top: 30%;
+    left: 45%;
+}
+
+.greece-fact {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.3em;
+    color: #333;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fact-highlight {
+    background: rgba(255, 255, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Final Thank You Page Styles */
+.final-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.final-title {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+    animation: bounce 2s infinite;
+}
+
+.final-message {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.final-message h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.final-message p {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.final-image {
+    font-size: 3em;
+    margin: 2rem 0;
+    animation: bounce 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .birthday-title {
+        font-size: 3em;
+    }
+    
+    .birthday-number {
+        font-size: 5em;
+    }
+    
+    .birthday-message {
+        font-size: 1.3em;
+    }
+    
+    .candle-title, .question-title, .movie-prompt-title, .movie-trailers-title, .ending-title {
+        font-size: 2em;
+    }
+    
+    .cake-base {
+        width: 300px;
+        height: 120px;
+    }
+    
+    .candles {
+        width: 250px;
+    }
+    
+    .flame {
+        font-size: 1.5em;
+    }
+    
+    .answer-buttons, .movie-prompt-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .trailers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Trailer Overlay Styles */
+.trailer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.trailer-overlay.active {
+    display: flex;
+}
+
+.trailer-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 70%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.close-trailer-btn {
+    position: absolute;
+    top: -25px;
+    right: 20px;
+    background: #ff0000;
+    color: white;
+    border: 3px solid white;
+    width: auto;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.trailer-instructions {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 9999;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.close-trailer-btn:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+#trailer-content {
+    width: 100%;
+    height: 100%;
+}
+
+#trailer-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

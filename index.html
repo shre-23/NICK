@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alles Gute zum 8. Geburtstag Nick!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <div class="birthday-container">
+            <h1 class="birthday-title">🎉 ALLES GUTE ZUM GEBURTSTAG NICK! 🎉</h1>
+            <div class="number-container">
+                <div class="birthday-number">8</div>
+            </div>
+            <p class="birthday-message">Klicke irgendwo, um deinen besonderen Tag fortzusetzen!</p>
+        </div>
+    </div>
+
+    <!-- Candle Blowing Page -->
+    <div id="candle-page" class="page">
+        <div class="candle-container">
+            <h2 class="candle-title">🎂 Puste deine Geburtstagskerzen aus! 🎂</h2>
+            <p class="candle-instruction">Klicke auf jede Kerze, um sie auszupusten!</p>
+            
+            <div class="birthday-cake">
+                <div class="cake-base"></div>
+                <div class="candles">
+                    <div class="candle" data-candle="1" onclick="blowCandle(1)">
+                        <div class="flame" id="flame-1">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="2" onclick="blowCandle(2)">
+                        <div class="flame" id="flame-2">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="3" onclick="blowCandle(3)">
+                        <div class="flame" id="flame-3">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="4" onclick="blowCandle(4)">
+                        <div class="flame" id="flame-4">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="5" onclick="blowCandle(5)">
+                        <div class="flame" id="flame-5">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="6" onclick="blowCandle(6)">
+                        <div class="flame" id="flame-6">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="7" onclick="blowCandle(7)">
+                        <div class="flame" id="flame-7">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="8" onclick="blowCandle(8)">
+                        <div class="flame" id="flame-8">🕯️</div>
+                        <div class="wick"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="candles-blown" class="progress">
+                Ausgepustete Kerzen: <span id="blown-count">0</span>/8
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Page -->
+    <div id="question-page" class="page">
+        <div class="question-container">
+            <h2 class="question-title">🎈 Zeit für Geburtstagsfragen! 🎈</h2>
+            <div class="question-box">
+                <h3>Was magst du am liebsten an Geburtstagen?</h3>
+                <div class="answer-buttons">
+                    <button class="answer-btn" onclick="selectAnswer('cake')">🎂 Geburtstagskuchen!</button>
+                    <button class="answer-btn" onclick="selectAnswer('presents')">🎁 Geschenke auspacken!</button>
+                    <button class="answer-btn" onclick="selectAnswer('friends')">👫 Mit Freunden feiern!</button>
+                    <button class="answer-btn" onclick="selectAnswer('everything')">🎉 Alles!</button>
+                </div>
+            </div>
+            <div id="answer-result" class="answer-result"></div>
+        </div>
+    </div>
+
+    <!-- Movie Night Prompt Page -->
+    <div id="movie-prompt-page" class="page">
+        <div class="movie-prompt-container">
+            <h2 class="movie-prompt-title">🍿 Filmabend-Zeit! 🍿</h2>
+            <div class="movie-prompt-box">
+                <h3>Hey Nick! Möchtest du einen Filmabend machen?</h3>
+                <div class="movie-prompt-buttons">
+                    <button class="movie-btn yes-btn" onclick="answerMoviePrompt('yes')">✅ Ja, bitte!</button>
+                    <button class="movie-btn no-btn" onclick="answerMoviePrompt('no')">❌ Nein, danke!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Trailers Page -->
+    <div id="movie-trailers-page" class="page">
+        <div class="movie-trailers-container">
+            <h2 class="movie-trailers-title">🎬 Wähle einen Film zum Anschauen! 🎬</h2>
+            <div class="trailers-grid">
+                <div class="movie-card" onclick="showTrailer('harry-potter')">
+                    <div class="movie-poster harry-potter">
+                        <div class="play-button">▶️</div>
+                    </div>
+                    <h3 class="movie-title">Harry Potter und der Stein der Weisen</h3>
+                </div>
+                <div class="movie-card" onclick="showTrailer('big-hero-6')">
+                    <div class="movie-poster big-hero-6">
+                        <div class="play-button">▶️</div>
+                    </div>
+                    <h3 class="movie-title">Baymax - Riesiges Robowabohu</h3>
+                </div>
+                <div class="movie-card" onclick="showTrailer('jungle-book')">
+                    <div class="movie-poster jungle-book">
+                        <div class="play-button">▶️</div>
+                    </div>
+                    <h3 class="movie-title">Das Dschungelbuch</h3>
+                </div>
+            </div>
+            <div id="trailer-overlay" class="trailer-overlay">
+                <div class="trailer-container">
+                    <button class="close-trailer-btn" onclick="closeTrailer()">✕ SCHLIESSEN</button>
+                    <div class="trailer-instructions">Drücke ESC oder klicke außerhalb des Videos zum Schließen</div>
+                    <div id="trailer-content"></div>
+                </div>
+            </div>
+            <button class="continue-btn movie-continue-btn" onclick="showPage('pottery-page')">Weiter zu deiner besonderen Einladung!</button>
+        </div>
+    </div>
+
+    <!-- Ending Page -->
+    <div id="ending-page" class="page">
+        <div class="ending-container">
+            <h2 class="ending-title">🌟 Danke fürs Feiern, Nick! 🌟</h2>
+            <div class="ending-message">
+                <h3>Hoffentlich hattest du einen SUPER tollen 8. Geburtstag!</h3>
+                <div class="ending-image">🎂 🎁 🎈 👑 🎮 🎯 🎪</div>
+                <button class="continue-btn" onclick="showPage('pottery-page')">Weiter zu deiner besonderen Einladung!</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pottery Painting Invitation Page -->
+    <div id="pottery-page" class="page">
+        <div class="pottery-container">
+            <h2 class="pottery-title">🎨 Einladung zum Malabenteuer! 🎨</h2>
+            
+            <div class="pottery-question-box">
+                <h3>Hey Nick! Auf einer Skala von 1-10, wie sehr magst du Malen?</h3>
+                <div class="rating-container">
+                    <div class="rating-scale">
+                        <button class="rating-btn" onclick="selectRating(1)">1</button>
+                        <button class="rating-btn" onclick="selectRating(2)">2</button>
+                        <button class="rating-btn" onclick="selectRating(3)">3</button>
+                        <button class="rating-btn" onclick="selectRating(4)">4</button>
+                        <button class="rating-btn" onclick="selectRating(5)">5</button>
+                        <button class="rating-btn" onclick="selectRating(6)">6</button>
+                        <button class="rating-btn" onclick="selectRating(7)">7</button>
+                        <button class="rating-btn" onclick="selectRating(8)">8</button>
+                        <button class="rating-btn" onclick="selectRating(9)">9</button>
+                        <button class="rating-btn" onclick="selectRating(10)">10</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pottery-invitation">
+                <h3>Möchtest du deine eigene Tasse bemalen?</h3>
+                <p>Am 23. August können wir in Mainz Töpferwaren bemalen gehen!</p>
+                <div class="pottery-buttons">
+                    <button class="pottery-btn yes-btn" onclick="answerPottery('yes')">Ja, das klingt nach Spaß!</button>
+                    <button class="pottery-btn no-btn" onclick="answerPottery('no')">Nein, danke</button>
+                </div>
+            </div>
+            
+            <div id="pottery-result" class="pottery-result"></div>
+            
+
+            
+            <button class="continue-btn" onclick="showPage('greece-page')">Setze dein Geburtstagsabenteuer fort!</button>
+        </div>
+    </div>
+    
+    <!-- Greece Vacation Page -->
+    <div id="greece-page" class="page">
+        <div class="greece-container">
+            <h2 class="greece-title">🇬🇷 Nicks Griechenland-Abenteuer! 🇬🇷</h2>
+            <div class="greece-message">
+                <h3>Wir hoffen, du hast einen FANTASTISCHEN Urlaub in Griechenland mit deinem Papa!</h3>
+                <p>Klicke unten auf deine Lieblingsorte in Griechenland, um coole Fakten zu sehen!</p>
+                
+                <div class="greece-map-container">
+                    <div class="greece-map">
+                        <div class="map-spot athens" onclick="showGreekFact('athens')">
+                            <div class="spot-marker">🏛️</div>
+                            <div class="spot-label">Athen</div>
+                        </div>
+                        <div class="map-spot santorini" onclick="showGreekFact('santorini')">
+                            <div class="spot-marker">🌊</div>
+                            <div class="spot-label">Santorini</div>
+                        </div>
+                        <div class="map-spot crete" onclick="showGreekFact('crete')">
+                            <div class="spot-marker">🏝️</div>
+                            <div class="spot-label">Kreta</div>
+                        </div>
+                        <div class="map-spot rhodes" onclick="showGreekFact('rhodes')">
+                            <div class="spot-marker">🏰</div>
+                            <div class="spot-label">Rhodos</div>
+                        </div>
+                        <div class="map-spot mykonos" onclick="showGreekFact('mykonos')">
+                            <div class="spot-marker">⛵</div>
+                            <div class="spot-label">Mykonos</div>
+                        </div>
+                        <div class="map-spot thessaloniki" onclick="showGreekFact('thessaloniki')">
+                            <div class="spot-marker">🗼</div>
+                            <div class="spot-label">Thessaloniki</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="greece-fact" class="greece-fact">
+                    Klicke auf einen Ort, um einen interessanten Fakt zu erfahren!
+                </div>
+                
+                
+
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-weight: bold; color: #ff6b6b; font-size: 18px;">Nimm dir Zeit, um alle Orte zu erkunden! 🗺️</p>
+                <p id="greece-timer" style="color: #ff6b6b; font-size: 16px; margin-top: 10px;">Erkunde die Karte für 1:30 Minuten</p>
+                <button id="greece-continue-btn" class="continue-btn" style="background-color: #4ecdc4; font-size: 18px; padding: 15px 25px; margin-top: 15px; opacity: 0.5; cursor: not-allowed;" disabled>Wenn du fertig bist, klicke hier, um fortzufahren</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Thank You Page -->
+    <div id="final-page" class="page">
+        <div class="final-container">
+            <h2 class="final-title">🎉 Geburtstagsabenteuer abgeschlossen! 🎉</h2>
+            <div class="final-message">
+                <h3>Danke, dass du deinen 8. Geburtstag mit uns gefeiert hast, Nick!</h3>
+                <p>Dein besonderer Tag ist erst der Anfang eines tollen Jahres!</p>
+                <p>Genieße den Rest deines Urlaubs in Griechenland! 🇬🇷</p>
+                <div class="final-image">🎨 🎭 🎪 🎢 🎡 🎪 🎨</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
